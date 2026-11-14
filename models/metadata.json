@@ -1,0 +1,116 @@
+{
+    "model_version": "1.0.0",
+    "random_seed": 42,
+    "selected_demand_model": "Candidate 1: Ridge Regression",
+    "features": [
+        "Total_Stock_Balance",
+        "Active_Batches",
+        "Min_Days_To_Expiry",
+        "Month",
+        "Quarter",
+        "WeekOfYear",
+        "Sin_Month",
+        "Cos_Month",
+        "Sin_Week",
+        "Cos_Week",
+        "Demand_Lag_1",
+        "Demand_Lag_2",
+        "Demand_Lag_4",
+        "Demand_Lag_8",
+        "Rolling_Mean_4",
+        "Rolling_Std_4",
+        "Rolling_Min_4",
+        "Rolling_Max_4",
+        "Rolling_Mean_8",
+        "Rolling_Std_8",
+        "Rolling_Min_8",
+        "Rolling_Max_8",
+        "Rolling_Mean_12",
+        "Rolling_Std_12",
+        "Rolling_Min_12",
+        "Rolling_Max_12",
+        "Demand_Momentum"
+    ],
+    "risk_features": [
+        "Days_To_Expiry",
+        "Stock_Balance",
+        "Initial_Stock",
+        "Expected_Weekly_Demand",
+        "Stock_Cover_Ratio",
+        "Stock_Cover_Weeks",
+        "Depletion_Percentage"
+    ],
+    "demand_test_metrics": {
+        "MAE": 37.05,
+        "RMSE": 60.95,
+        "WAPE": 0.1201,
+        "WAPE_Pct": "12.01%",
+        "R2": 0.8786,
+        "MBE": 11.12
+    },
+    "all_demand_comparisons": {
+        "Baseline: Last-Value": {
+            "MAE": 83.77,
+            "RMSE": 113.76,
+            "WAPE": 0.2714,
+            "WAPE_Pct": "27.14%",
+            "R2": 0.5769,
+            "MBE": -4.8
+        },
+        "Baseline: 4W-MovingAvg": {
+            "MAE": 66.95,
+            "RMSE": 86.72,
+            "WAPE": 0.2169,
+            "WAPE_Pct": "21.69%",
+            "R2": 0.7542,
+            "MBE": -9.88
+        },
+        "Baseline: SeasonalNaive": {
+            "MAE": 105.05,
+            "RMSE": 140.65,
+            "WAPE": 0.3404,
+            "WAPE_Pct": "34.04%",
+            "R2": 0.3532,
+            "MBE": -26.1
+        },
+        "Candidate 1: Ridge Regression": {
+            "MAE": 37.05,
+            "RMSE": 60.95,
+            "WAPE": 0.1201,
+            "WAPE_Pct": "12.01%",
+            "R2": 0.8786,
+            "MBE": 11.12
+        },
+        "Candidate 2: Random Forest": {
+            "MAE": 38.69,
+            "RMSE": 57.53,
+            "WAPE": 0.1253,
+            "WAPE_Pct": "12.53%",
+            "R2": 0.8918,
+            "MBE": 25.49
+        },
+        "Candidate 3: Gradient Boosting": {
+            "MAE": 38.52,
+            "RMSE": 59.17,
+            "WAPE": 0.1248,
+            "WAPE_Pct": "12.48%",
+            "R2": 0.8855,
+            "MBE": 22.3
+        }
+    },
+    "risk_test_metrics": {
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1_Score": 1.0,
+        "Specificity": 1.0,
+        "True_Positives": 37,
+        "False_Positives": 0,
+        "True_Negatives": 237,
+        "False_Negatives": 0,
+        "ROC_AUC": 1.0,
+        "PR_AUC": 1.0
+    },
+    "risk_horizon_days": 60,
+    "data_records": 1519,
+    "advisory_disclaimer": "Operational guidance only. All alerts must be reviewed by pharmacy inventory managers. Never use as medication, dosing, or clinical treatment advice."
+}
