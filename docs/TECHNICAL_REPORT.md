@@ -151,13 +151,19 @@ flowchart TD
 
 ## 7. Inference Architecture & Delivery
 
-The system provides two production interfaces:
-1. **FastAPI REST Service (`app/api.py`)**:
+The system provides three integrated production delivery interfaces:
+1. **Enterprise Web Frontend UI (`frontend/` & embedded in FastAPI)**:
+   - Modern, responsive single-page enterprise dashboard built with Tailwind CSS, Chart.js, and Lucide icons.
+   - Hosted directly by FastAPI at `http://localhost:8000` (or `http://localhost:8000/ui`), or executable standalone via `frontend/index.html`.
+   - Five interactive modules: Executive Overview KPIs, Demand Forecasting Studio with 95% uncertainty cones, Batch Expiry Risk Triage Surveillance with CSV/JSON export and custom batch assessment, What-If Stress Testing Simulator with dynamic inventory depletion curves, and Model Benchmarks & Explainability Hub.
+2. **FastAPI High-Performance REST Service (`app/api.py`)**:
    - `GET /health`: Service health and model version.
    - `GET /models/metrics`: Benchmark comparison table across baselines and candidates.
+   - `GET /api/products`: Active catalog medicines with category and pricing profiles.
+   - `GET /api/summary`: High-level inventory, risk, and model accuracy KPIs.
    - `POST /predict/demand`: Real-time demand forecast with 95% confidence bounds.
    - `POST /batches/risk-assessment`: Evaluates batch stock balance against demand velocity, calculates financial capital at risk, and outputs operational advice.
-2. **Streamlit Interactive Decision-Support Dashboard (`app/dashboard.py`)**:
+3. **Streamlit Interactive Decision-Support Dashboard (`app/dashboard.py`)**:
    - Dynamic catalog selector with historical trend charts.
    - Live batch surveillance triage table with color-coded severity badges.
    - What-if stress testing simulator for demand shocks and supply disruptions.

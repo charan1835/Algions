@@ -43,11 +43,12 @@ flowchart TD
         T --> W["models/metadata.json"]
     end
 
-    subgraph Inference_Layer["5. Dual Inference Interfaces"]
+    subgraph Inference_Layer["5. Multi-Interface Inference Layer"]
         U & V & W --> X["FastAPI REST Service<br/>(Port 8000)"]
         U & V & W --> Y["Streamlit Decision Dashboard<br/>(Port 8501)"]
-        X --> Z["REST Clients / ERP Integration"]
-        Y --> AA["Pharmacy Inventory Managers"]
+        X --> Z["Enterprise Web Frontend UI<br/>(Port 8000 /ui, Tailwind + Chart.js)"]
+        X --> AA["ERP & Pharmacy Systems Integration"]
+        Y & Z --> AB["Pharmacy Inventory Managers"]
     end
 ```
 
@@ -59,7 +60,7 @@ flowchart TD
 sequenceDiagram
     autonumber
     actor User as Pharmacy Inventory Manager
-    participant UI as Streamlit / FastAPI
+    participant UI as Enterprise Web Frontend / Streamlit / FastAPI
     participant Engine as InventoryRiskEngine
     participant ML as RandomForestForecaster
     participant DB as Model Artifacts (.joblib)
