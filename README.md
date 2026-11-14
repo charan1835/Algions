@@ -53,7 +53,7 @@ Execute the automated test suite verifying data loaders, anti-leakage guards, mo
 pytest tests/ -v
 ```
 
-### 5. Launching the Interactive Decision Dashboard
+### 5. Launching the Interactive Decision Dashboard (Streamlit)
 Launch the interactive Streamlit application with live demand forecasting, batch triage surveillance, and what-if simulation:
 
 ```bash
@@ -61,13 +61,15 @@ streamlit run app/dashboard.py
 ```
 Open your browser at `http://localhost:8501`.
 
-### 6. Launching the FastAPI REST Inference Service
-Run the high-performance REST API:
+### 6. Launching the Enterprise Web Frontend & REST API
+Run the high-performance REST API with embedded enterprise single-page web application:
 
 ```bash
 uvicorn app.api:app --host 0.0.0.0 --port 8000 --reload
 ```
-Interactive Swagger documentation is available at `http://localhost:8000/docs`.
+- **Enterprise Web Frontend UI**: Open `http://localhost:8000` (or `http://localhost:8000/ui`)
+- **Interactive Swagger Documentation**: Open `http://localhost:8000/docs`
+- **Standalone Frontend**: You can also double-click and open `frontend/index.html` directly in any web browser without needing a server!
 
 ---
 
@@ -122,8 +124,12 @@ Algions/
 │       └── risk_classifier.py         # Mechanistic + ML batch expiry risk engine
 ├── app/
 │   ├── __init__.py
-│   ├── api.py                         # FastAPI REST service (/predict/demand, /batches/risk-assessment)
+│   ├── api.py                         # FastAPI REST service (/predict/demand, /batches/risk-assessment, serves Web UI)
 │   └── dashboard.py                   # Streamlit interactive decision-support application
+├── frontend/
+│   ├── index.html                     # Enterprise single-page decision support UI (Tailwind CSS, Chart.js)
+│   ├── app.js                         # Reactive application logic, charts, triage tables & what-if engine
+│   └── style.css                      # Modern dark/light design system, glassmorphism & risk badges
 ├── models/
 │   ├── demand_forecaster.joblib       # Serialized champion demand forecasting model
 │   ├── risk_classifier.joblib        # Serialized batch expiry risk classification model
@@ -164,3 +170,4 @@ Algions/
 - **Advisory Constraint**: Outputs provide supply-chain decision support only and never clinical medication or prescribing guidance.
 - **Privacy Assurance**: No patient-identifiable data or protected medical records were used.
 - **Attribution**: Based on public ATC classification principles and synthetic simulations designed for Algions AI Labs.
+"# Algions" 
